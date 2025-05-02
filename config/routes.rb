@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => "/api-docs"
   get "up" => "rails/health#show", as: :rails_health_check
 
+  get "/", to: redirect("/todos")
+
   resources :todos do
     resources :items
   end
